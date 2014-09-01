@@ -1,0 +1,5 @@
+name = "HungWei Lin"
+SID = "24715473"
+email = "boyabc123@berkeley.edu"
+github_name = "boyabc123"
+status = "enrolled"
