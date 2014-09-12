@@ -5,5 +5,19 @@
     "email": "boyabc123@berkeley.edu", 
     "github_name": "boyabc123", 
     "status": "enrolled", 
-    "grades": {}
+    "grades": {
+        "hw1": {
+            "note": "", 
+            "hash": "7841f49be0150dfe8e75b3d2c7b2ecc68a417a0e", 
+            "earned": 14, 
+            "possible": 14, 
+            "penalty": 0, 
+            "parts": {
+                "ex1": {
+                    "possible": 14, 
+                    "earned": 14
+                }
+            }
+        }
+    }
 }
