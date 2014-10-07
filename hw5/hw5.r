@@ -1,3 +1,7 @@
+library(RUnit)
+errMsg = function(err) print(paste("ERROR:", err))
+load('hw5-tests.rda')
+
 # Implement the function "listLengths". Your function should take the
 # follwoing arguments:
 #
@@ -10,7 +14,7 @@
 
 listLengths <- function(data.list) {
 
-    # your code here
+    sapply(data.list, length)
 }
 
 tryCatch(checkEquals(list.lengths.t, listLengths(ex3.test2)),
@@ -34,8 +38,18 @@ tryCatch(checkEquals(list.lengths.t, listLengths(ex3.test2)),
 # column i and j.
 
 standMatrixVariables <- function(data.matrix) {
-
-    # your code here
+                  n = ncol(data.matrix)
+                  m = matrix(0,ncol=n,nrow=n)
+                  col_mean = apply(data.matrix, 2, mean)
+                  m1 = apply(a,1,function(x) x=col_mean)
+                  m = t(m1)-m1
+                  sd_matrix = matrix(0,ncol=n,nrow=n)
+                  for(i in 1:5)
+                    for(j in 1:5)
+                      sd_matrix[i,j] = sd(cbind(data.matrix[,i],data.matrix[,j]))
+                  
+                  return(m/sd_matrix)
+                  
 }
 
 tryCatch(checkEquals(stand.matrix.variables.t,
@@ -60,13 +74,16 @@ tryCatch(checkEquals(stand.matrix.variables.t,
 #   argument, group 2 as the second argument and the alternative direction
 #   specified by <test.alternative>
 
+babies = read.csv("babies.csv", header=TRUE)
 
 testGroupsGestation <- function(data, group1.idcs, group2.idcs,
                                 test.alternative='two.sided') {
 
     stopifnot(!any(group1.idcs %in% group2.idcs))
-
-    # your code here
+    
+                         group1 = data$gestation[group1.idcs]
+                         group2 = data$gestation[group2.idcs]
+                         t.test(group1,group2,alternative = test.alternative)
 }
 
 tryCatch(checkEquals(test.groups.gestation.t$p.value,
@@ -78,8 +95,8 @@ tryCatch(checkEquals(test.groups.gestation.t$p.value,
 # period for babies of smoking mothers and non-smoking mothers. Store this
 # variable as <smoking.test>
 
-# your code here
-#smoke.idcs <- your code here
-#non.smoke.idcs <- your code here
-#smoking.test <- your code here
+
+smoke.idcs <- which(babies$smoke == 1)
+non.smoke.idcs <- which(babies$smoke == 0)
+smoking.test <- testGroupsGestation(babies , smoke.idcs , non.smoke.idcs,'greater')
 
