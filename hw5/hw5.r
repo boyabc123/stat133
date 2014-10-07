@@ -41,7 +41,7 @@ standMatrixVariables <- function(data.matrix) {
                   n = ncol(data.matrix)
                   m = matrix(0,ncol=n,nrow=n)
                   col_mean = apply(data.matrix, 2, mean)
-                  m1 = apply(a,1,function(x) x=col_mean)
+                  m1 = apply(m,1,function(x) x=col_mean)
                   m = t(m1)-m1
                   sd_matrix = matrix(0,ncol=n,nrow=n)
                   for(i in 1:5)
