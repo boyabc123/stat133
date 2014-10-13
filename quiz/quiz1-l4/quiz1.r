@@ -47,8 +47,7 @@ ppl.young.weight <- ppl.young[,colnames(family) %in% c("firstName","weight")]
 
 bmiByheight <- function(height.range, height, bmi) {
   
-  new_height_index=which(height.range[1]<=height & height<=height.range[2])
-  mean(bmi[new_height_index])
+  mean(bmi[height.range[1]<=height & height<=height.range[2]])
   
 }
 
