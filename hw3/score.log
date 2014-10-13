@@ -1,0 +1,47 @@
+INFO:root:Executed R('local({r <- getOption(\'repos\'); r[\'CRAN\'] <- \'http://cran.r-project.org\'; options(repos=r)})')
+INFO:root:Executed R('load(\'../../instructor/assignments/hw3/hw3-tests.rda\')')
+INFO:root:(1 points) R('all.equal(n.wr, sol$n.wr)')[0] is True
+ERROR:root:(1 points) Checking R('all.equal(wr.name, sol$wr.name)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   Modes: character, numeric
+INFO:root:(1 points) R('all.equal(times_sec, sol$times_sec)')[0] is True
+INFO:root:(1 points) R('all.equal(new_year, sol$new_year)')[0] is True
+INFO:root:(1 points) R('all.equal(wr1500m[1:6], sol$wr1500m.1)')[0] is True
+INFO:root:(1 points) R('all.equal(wr1500m, sol$wr1500m)')[0] is True
+INFO:root:(1 points) R('all.equal(GDP_per_person, sol$GDP_per_person)')[0] is True
+ERROR:root:(1 points) Checking R('all.equal(top5, sol$top5)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   Numeric: lengths (204, 5) differ
+ERROR:root:(1 points) Checking R('all.equal(wonMedal, sol$wonMedal)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   Names: 4 string mismatches
+INFO:root:(1 points) R('all.equal(n.athletes, sol$n.athletes)')[0] is True
+INFO:root:(1 points) R('all.equal(frac.women, sol$frac.women)')[0] is True
+INFO:root:(1 points) R('all.equal(n.sports, sol$n.sports)')[0] is True
+INFO:root:(1 points) R('all.equal(athTab, sol$athTab)')[0] is True
+INFO:root:(1 points) R('all.equal(set.beside, sol$set.beside)')[0] is True
+INFO:root:(1 points) R('all.equal(athTab2, sol$athTab2)')[0] is True
+INFO:root:(1 points) R('all.equal(orderSport, sol$orderSport)')[0] is True
+ERROR:root:(1 points) Checking Does the final plot have at least the elements in a basic plot?
+ERROR:root:... Expecting: False
+ERROR:root:... But got:   n
+INFO:root:(1 points) Does the final plot contain a main title, an x-label and a y-label? is y
+INFO:root:(1 points) Does the final plot have the extension of line? is y
+INFO:root:(1 points) Are there two vertical lines with text names? is y
+ERROR:root:(1 points) Checking Are the vertical lines grey?
+ERROR:root:... Expecting: False
+ERROR:root:... But got:   n
+INFO:root:(1 points) Is the plot not too cluttered? is y
+INFO:root:(1 points) Are there labels in the plot? is y
+INFO:root:(1 points) Are there circles and points in the plot? is y
+INFO:root:(1 points) Are there five labelled circles in the plot? is y
+INFO:root:(1 points) Does the basic plot look fine? is y
+INFO:root:(1 points) Does the plot look good? is y
+INFO:root:(1 points) Are the circles of decent size? is y
+ERROR:root:(1 points) Checking Are the colors reasonable?
+ERROR:root:... Expecting: False
+ERROR:root:... But got:   n
+INFO:root:(1 points) Are the bars side-by-side? is y
+INFO:root:(1 points) Are the labels rotated? is y
+INFO:root:(1 points) Does the title and the plot look okay? is y
+INFO:root:You got a 26 out of 32.
