@@ -78,6 +78,23 @@
                     "earned": 11
                 }
             }
+        }, 
+        "quiz": {
+            "note": "", 
+            "hash": "e5a25b2a28a670dbcc03a482fbba50d25772e5a7", 
+            "earned": 11, 
+            "possible": 13, 
+            "penalty": 0, 
+            "parts": {
+                "quiz1": {
+                    "possible": 9, 
+                    "earned": 7
+                }, 
+                "quiz1_fig": {
+                    "possible": 4, 
+                    "earned": 4
+                }
+            }
         }
     }, 
     "section": "lab4"

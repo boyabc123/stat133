@@ -1,0 +1,19 @@
+INFO:root:Executed R('load(\'../../instructor/assignments/quiz/quiz1-l4/quiz1-l4-tests.rda\')')
+INFO:root:(1 points) R('all.equal(mean.age, test$var1)')[0] is True
+INFO:root:(1 points) R('all.equal(med.age, test$var2)')[0] is True
+INFO:root:(1 points) R('all.equal(height.diffs, test$app)')[0] is True
+INFO:root:(1 points) R('all.equal(ppl.old, test$sub1)')[0] is True
+INFO:root:(1 points) R('all.equal(ppl.young, test$sub2)')[0] is True
+ERROR:root:(1 points) Checking R('all.equal(ppl.old.weight, test$sub3)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   Modes: list, numeric
+ERROR:root:(1 points) Checking R('all.equal(ppl.young.weight, test$sub4)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   Modes: list, numeric
+INFO:root:Executed R('fun.output <- bmiByheight(test$fun1, test$fun2, test$fun3)')
+INFO:root:(2 points) R('all.equal(fun.output, test$fun.out)')[0] is True
+INFO:root:(1 points) correct plot'? is y
+INFO:root:(1 points) Is there a title'? is y
+INFO:root:(1 points) axis labels? is y
+INFO:root:(1 points) a blue line with correct slope and intercept? is y
+INFO:root:You got a 11 out of 13.
