@@ -27,7 +27,7 @@ y = seq(-1,-19, by = -2)
 ## In one R command, create a variable [[ z ]] which is a vector and has
 ## the numbers 1 through 5, each repeated 4 times, in order (so 1 1 1 1 2 2 2 2 etc.)
 
-z = c(rep(1,4),rep(2,4),rep(3,4),rep(4,4),rep(5,4))
+z = sort(rep(c(1:5),4))
 
 ## In one R command, create a variable [[ m ]] that is a 3-by-4 matrix and has
 ## the entries 10, 20, through 120, where the numbers are entered row by row
@@ -42,7 +42,7 @@ m = matrix( seq(10,120, by=10), nrow=3,ncol=4,byrow=TRUE )
 
 num = c(seq(1,10))
 lett = c('a','b','c','d','e','f','g','h','i','j')
-even = rep(c(T,F),5)
+even = rep(num %% 2 == 0)
 n = data.frame(num,lett,even)
 
 ## Create a variable [[ p ]] that is a list and whose elements are x, y, z and m from above.
