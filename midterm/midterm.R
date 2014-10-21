@@ -116,7 +116,7 @@ hist(infants$dht)
 ## Create a table which tallies the education level of mothers (varible ed in the data frame)
 ## against the education level of the fathers (variable ded in the data frame)
 
-table(infants$ed,infants$ded)
+table(infants$ded,infants$ed)
 
 ########################################### FOURTH PART
 ## Write a function that takes as input a vector x and returns a standardized vector
