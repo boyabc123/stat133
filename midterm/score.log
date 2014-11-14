@@ -1,0 +1,30 @@
+INFO:root:(1 points) Is the boxplot plotted'? is y
+INFO:root:(1 points) Is the rain scatterplot correct? is y
+INFO:root:(1 points) Is the rain scatterplot labeled? is y
+INFO:root:(1 points) Is the infants plot correct? is y
+INFO:root:(1 points) Is the infants plot labeled? is y
+INFO:root:(1 points) Does the infants plot have a red identity line? is y
+INFO:root:(1 points) Is the histogram plotted? is y
+INFO:root:Executed R('load(\'../../instructor/assignments/midterm/midterm-tests.rda\')')
+INFO:root:(1 points) R('all.equal(x, sol$x)')[0] is True
+INFO:root:(1 points) R('all.equal(y, sol$y)')[0] is True
+INFO:root:(1 points) R('all.equal(z, sol$z)')[0] is True
+INFO:root:(1 points) R('all.equal(m, sol$m)')[0] is True
+INFO:root:(1 points) R('all.equal(class(n), "data.frame")')[0] is True
+INFO:root:(1 points) R('all.equal(n, sol$n, check.attributes=F)')[0] is True
+INFO:root:(1 points) R('all.equal(names(n), names(sol$n))')[0] is True
+INFO:root:(1 points) R('all.equal(class(p), "list")')[0] is True
+INFO:root:(1 points) R('all.equal(p, sol$p, check.attributes=F)')[0] is True
+INFO:root:(1 points) R('all.equal(dim(nmat), c(100, 100))')[0] is True
+INFO:root:(1 points) R('all.equal(nmat, sol$nmat)')[0] is True
+INFO:root:(1 points) R('all.equal(type.rain, "list")')[0] is True
+INFO:root:(1 points) R('all.equal(name.stations, sol$name.stations)')[0] is True
+INFO:root:(1 points) R('all.equal(n.obs, sol$n.obs, check.attributes=F)')[0] is True
+INFO:root:(1 points) R('all.equal(max.rain, sol$max.rain, check.attributes=F)')[0] is True
+INFO:root:Executed R('standardize.r1 <- standardize(sol$standardize.t1)')
+INFO:root:(1 points) R('all.equal(standardize.r1, sol$standardize.r1)')[0] is True
+INFO:root:Executed R('standardize.r2 <- standardize(sol$standardize.t2)')
+ERROR:root:(1 points) Checking R('all.equal(standardize.r2, sol$standardize.r2)')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   'is.NA' value mismatch: 2 in current 12 in target
+INFO:root:You got a 23 out of 24.
