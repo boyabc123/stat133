@@ -158,7 +158,15 @@ break_times <- function(n){
 # Remark: There is no randomness in this function.
 
 serv_wait_sick <- function(inter, serv, br_times){
-  # your code here
+  num = length(inter)
+  inter = interarrival_times(k)
+  a = c(1,0)
+  
+  serv = service_times(k)
+  serv[6:num]=1.5*serv[6:num]
+  wait = waiting_times(inter, serv)
+  wait_serv =
+  serv
 }
 
 # End of quiz.
