@@ -165,7 +165,6 @@ serv_wait_sick <- function(inter, serv, br_times){
   serv = service_times(k)
   serv[6:num]=1.5*serv[6:num]
   wait = waiting_times(inter, serv)
-  wait_serv =
   return(c(serv,inter))
 }
 
