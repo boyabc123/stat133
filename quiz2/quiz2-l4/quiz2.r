@@ -160,13 +160,13 @@ break_times <- function(n){
 serv_wait_sick <- function(inter, serv, br_times){
   num = length(inter)
   inter = interarrival_times(k)
-  a = c(1,0)
-  
+  a = num %% 2
+  inter[which(a==0)] = inter[which(a==0)]+5
   serv = service_times(k)
   serv[6:num]=1.5*serv[6:num]
   wait = waiting_times(inter, serv)
   wait_serv =
-  serv
+  return(c(serv,inter))
 }
 
 # End of quiz.
