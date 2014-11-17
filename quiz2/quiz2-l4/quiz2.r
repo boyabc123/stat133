@@ -9,7 +9,7 @@
 # Output: <num>: a Poisson(k) random variable (a single number)
 
 num_students <- function(k) {
-  # your code here
+  rpois(1,k)
 }
 
 # Assume all students arrive at different times.
@@ -27,7 +27,8 @@ num_students <- function(k) {
 # random variables (a vector of length num)
 
 interarrival_times <- function(num) {
-  # your code here
+ rexp(num,1/7)
+  
 }
 
 # For student i, it takes Z_i minutes for Johnny to answer questions.
@@ -42,7 +43,7 @@ interarrival_times <- function(num) {
 # random variables (a vector of length num)
 
 service_times <- function(num) {
-  # your code here
+  rexp(num,1/9)
 }
 
 # Compute the waiting time for each student.
@@ -66,7 +67,13 @@ service_times <- function(num) {
 # <wait>: a vector that contains the waiting time for each student
 
 waiting_times <- function(inter, serv){
-  # your code here
+  num = length(inter)
+  output = c(rep(0,num))
+  for (i in 2:num){
+    output[i] = serv[i-1]+output[i-1]-inter[i]
+  }
+  output[which(output<0)] = 0
+  output
 }
 
 # Simulation
@@ -81,23 +88,27 @@ waiting_times <- function(inter, serv){
 #   total: total times spent in Johnny's OH (serv + wait)
 
 queueing_sim <- function(k) {
-  # your code here
+  inter = interarrival_times(k)
+  serv = service_times(k)
+  wait = waiting_times(inter, serv)
+  total = serv+wait
+  data.frame(inter, serv, wait, total)
 }
 
 set.seed(1234)
 # Run the simulation 500 times with k = 14. 
 # Save the output in a variable called sim500.
 # sim500 is a list of 500 data frames.
-# sim500 <- your code here
-
-
+sim500 <- replicate(500, queueing_sim(14))
 
 
 # For each simulation, compute the average waiting time and
 # the average total time spent in OH.
 # Save the result in a matrix called avg_wait_total.
 # avg_wait_total is a 2x500 matrix (without any row names or column names).
-# avg_wait_total <- your code here
+avg_waiting_time = apply(sim500,2,function(x) mean(x$wait))
+avg_total_time = apply(sim500,2,function(x) mean(x$total))
+avg_wait_total <- matrix(c(avg_waiting_time,avg_total_time),nrow=2,byrow=TRUE)
 
 
 
@@ -126,7 +137,9 @@ set.seed(1234)
 # <br_times>: a numeric vector of break times
 
 break_times <- function(n){
-  # your code here
+  a = rnorm(n,5,5)
+  a[which(a<0)]=0
+  a
 }
 
 # Write a function called serv_wait_sick that computes
