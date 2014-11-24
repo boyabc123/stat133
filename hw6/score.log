@@ -1,0 +1,42 @@
+INFO:root:Executed R('load(\'../../instructor/assignments/hw6/hw6-test.rda\')')
+INFO:root:Executed R('init1 <- bml.init(2000, 1000, 0.4)')
+INFO:root:(1 points) R('all.equal(dim(init1), c(2000, 1000))')[0] is True
+INFO:root:(1 points) R('all.equal(sum(init1 == 1)/2000000, 0.2, tolerance = 0.02)')[0] is True
+INFO:root:(1 points) R('all.equal(sum(init1 == 2)/2000000, 0.2, tolerance = 0.02)')[0] is True
+INFO:root:Executed R('mat.idx <- which(sapply(bml.step(test$m1), is.matrix))')
+INFO:root:Executed R('log.idx <- which(!sapply(bml.step(test$m1), is.matrix))')
+INFO:root:Executed R('m1 <- all.equal(bml.step(test$m1)[[mat.idx]], sol$m1[[1]])')[0]
+INFO:root:Executed R('m1.swap <- all.equal(swap(bml.step(test$m1)[[mat.idx]]), sol$m1.swap[[1]])')[0]
+INFO:root:(1 points) R('m1==T | m1.swap==T')[0] is True
+INFO:root:Executed R('m2 <- all.equal(bml.step(test$m2)[[mat.idx]], sol$m2[[1]])')[0]
+INFO:root:Executed R('m2.swap <- all.equal(swap(bml.step(test$m2)[[mat.idx]]), sol$m2.swap[[1]])')[0]
+INFO:root:(1 points) R('m2==T | m2.swap==T')[0] is True
+INFO:root:Executed R('m3 <- all.equal(bml.step(test$m3)[[mat.idx]], sol$m3[[1]])')[0]
+INFO:root:Executed R('m3.swap <- all.equal(swap(bml.step(test$m3)[[mat.idx]]), sol$m3.swap[[1]])')[0]
+INFO:root:(1 points) R('m3==T | m3.swap==T')[0] is True
+INFO:root:Executed R('m4 <- all.equal(bml.step(test$m4)[[mat.idx]], sol$m4[[1]])')[0]
+INFO:root:Executed R('m4.swap <- all.equal(swap(bml.step(test$m4)[[mat.idx]]), sol$m4.swap[[1]])')[0]
+INFO:root:(1 points) R('m4==T | m4.swap==T')[0] is True
+INFO:root:Executed R('m5 <- all.equal(bml.step(test$m5)[[mat.idx]], sol$m5[[1]])')[0]
+INFO:root:Executed R('m5.swap <- all.equal(swap(bml.step(test$m5)[[mat.idx]]), sol$m5.swap[[1]])')[0]
+INFO:root:(1 points) R('m5==T | m5.swap==T')[0] is True
+INFO:root:(1 points) R('all.equal(bml.step(test$m6)[[mat.idx]], sol$m6[[1]])')[0] is True
+INFO:root:Executed R('m7 <- all.equal(bml.step(test$m7)[[mat.idx]], sol$m7[[1]])')[0]
+INFO:root:Executed R('m7.swap <- all.equal(swap(bml.step(test$m7)[[mat.idx]]), sol$m7.swap[[1]])')[0]
+INFO:root:(1 points) R('m7==T | m7.swap==T')[0] is True
+INFO:root:Executed R('m8 <- all.equal(bml.step(test$m8)[[mat.idx]], sol$m8[[1]])')[0]
+INFO:root:Executed R('m8.swap <- all.equal(swap(bml.step(test$m8)[[mat.idx]]), sol$m8.swap[[1]])')[0]
+INFO:root:(1 points) R('m8==T | m8.swap==T')[0] is True
+INFO:root:Executed R('m9 <- all.equal(bml.step(test$m9)[[mat.idx]], sol$m9[[1]])')[0]
+INFO:root:Executed R('m9.swap <- all.equal(swap(bml.step(test$m9)[[mat.idx]]), sol$m9.swap[[1]])')[0]
+INFO:root:(1 points) R('m9==T | m9.swap==T')[0] is True
+INFO:root:Executed R('m10 <- all.equal(bml.step(test$m10)[[mat.idx]], sol$m10[[1]])')[0]
+INFO:root:Executed R('m10.swap <- all.equal(swap(bml.step(test$m10)[[mat.idx]]), sol$m10.swap[[1]])')[0]
+INFO:root:(1 points) R('m10==T | m10.swap==T')[0] is True
+ERROR:root:(1 points) Checking R('all.equal(bml.step(test$m10)[[log.idx]], sol$m10[[2]])')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   1 element mismatch
+ERROR:root:(1 points) Checking R('all.equal(bml.step(test$m6)[[log.idx]], sol$m6[[2]])')[0]
+ERROR:root:... Expecting: True
+ERROR:root:... But got:   1 element mismatch
+INFO:root:You got a 17 out of 20.
