@@ -1,7 +1,7 @@
 ######################################################
 ##### Homework 7 due Wedensday Nov 26 at noon.
 ## Please read through the whole assignment before starting it.
-
+## setwd("~/src/stat133/hw7")
 ## For the assingment you will work with the full text of the 
 ## State of the Union speeches from 1790 until 2012.
 ## The speeches are all in the file "stateoftheunion1790-2012.txt".
@@ -38,21 +38,21 @@ source("computeSJDistance.R")
 # Check the class and dimension of [speeches].  Open the textfile in 
 # an editor and compare it to [speeches]
 
-speeches <- <your code here>
+speeches <- readLines(file('stateoftheunion1790-2012.txt'))
 
 # The speeches are separated by a line with three stars (***).
 # Create a numeric vector [breaks] with the line numbers of ***.
 # Create the variable [n.speeches] a numeric variable with the number of speeches
 # Question: Does every single *** in the file indicate the beginning of a speech?
 
-breaks <- <your code here>
-n.speeches <- <your code here>
+breaks <- length(grep('\\*\\*\\*',speeches))
+n.speeches <- breaks - 1
 
 # Use the vector [breaks] and [speeches] to create a 
 # character vector [presidents]
 # with the name of the president delivering the address
 
-presidents <- <your code here>
+presidents <- speeches[grep('\\*\\*\\*',speeches)+3][-breaks]
 
 # Use [speeches] and the vector [breaks] to create [tempDates], 
 # a character vector with the dates of each speech
@@ -61,10 +61,10 @@ presidents <- <your code here>
 # a character vector [speechMo] with the month of each speech
 # Note: you may need to use two lines of code to create one/both variables.
   
-tempDates <- <your code here>
+tempDates <- speeches[grep('\\*\\*\\*',speeches)+4][-breaks]
   
-speechYr <- <your code here>
-speechMo <- <your code here>
+speechYr <- as.numeric(substr(tempDates,nchar(tempDates)-3,nchar(tempDates)))
+speechMo <- gsub('\\s[0-9]{1,2},\\s[0-9]*','',tempDates)
 
 # Create a list variable [speechesL] which has the full text of each speech.
 # The variable [speechesL] should have one element for each speech.
@@ -84,8 +84,16 @@ speeches <- gsub("Mrs.", "Mrs", speeches)
 speeches <- gsub("U.S.", "US", speeches)
 
 speechesL <- list()
+a = grep('\\*\\*\\*',speeches)+6
+b = grep('\\*\\*\\*',speeches)-2
+b = b[-1]
+c = b - a[-length(a)]
 for(i in 1:n.speeches){
-  <your code here>
+  temp = speeches[a[i]]
+  for (k in 1:c[i]){
+    temp = paste(temp,speeches[a[i]+k])
+  }
+  speechesL[i] = strsplit(temp,'[.!?]')
 }
 
 #### Word Vectors 
@@ -126,20 +134,20 @@ speechToWords = function(sentences) {
 # Input  : sentences, a character string
 # Output : words, a character vector where each element is one word 
 
-  <your code here>
+  strsplit(strsplit(strsplit(strsplit(sentence,' '),'\\.'),'?'),'!')
   
   # return a character vector of all words in the speech
 }
 
-#### Apply the function speechToWords() to each speach
+#### Apply the function speechToWords() to each speech
 # Create a list, [speechWords], where each element of the list is a vector
 # with the words from that speech.
-speechWords <- <your code here>
+speechWords <- sapply(speechesL,speechToWords)
 
-# Unlist the variable speechWords (use unlist()) to get a list of all words in all speeches, the create:
+#Unlist the variable speechWords (use unlist()) to get a list of all words in all speeches, the create:
 # [uniqueWords] : a vector with every word that appears in the speeches in alphabetic order
 
-uniqueWords <- <your code here>
+uniqueWords <- sapply(speechesL,unlist)
 
 # Create a matrix [wordCount]
 # the number of rows should be the same as the length of [uniqueWords]
