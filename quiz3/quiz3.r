@@ -1,3 +1,4 @@
+here=T
 # Quiz 3
 # Number of Problems: 6
 # The quiz is out of 22 points.
@@ -12,7 +13,7 @@
 #   <num.at>: an integer indicating how many elements of <chvec> contain the "@"
 #     symbol. For example: numAtElements(c('karl', 'k@rl', '@@@')) should return 2
 numAtElements <- function(chvec){
-  
+  length(grep('@',chvec))
   # your code here
 }
 
@@ -25,7 +26,7 @@ numAtElements <- function(chvec){
 #   <newstring>: a character vector of length 1 where all ! symbols have been
 #     replaced by . symbols
 unexclaim <- function(chstring) {
-  
+  gsub('!','.',chstring)
   # your code here
 }
 
@@ -42,7 +43,7 @@ unexclaim <- function(chstring) {
 #     updated. For example updateDate(c('May, 2010', 'June, 2011'), '2010') should
 #     return 'May, 2015'.
 updateDate <- function(dates, old.yr) {
-  
+  gsub(old.yr,'2015',dates[grep(old.yr,dates)])
   # your code here
 }
 
@@ -59,8 +60,8 @@ updateDate <- function(dates, old.yr) {
 #                    cat dog
 #                     3   1
 countcatdog<- function(chvec){
-  
-  # your code here
+  temp = tolower(chvec)
+  temp = strsplit(temp,'')
 }
 
 # Function 5 (3 points)
@@ -71,14 +72,17 @@ countcatdog<- function(chvec){
 #
 # and return the following
 #   <total>: A single number (the sum of all the digits in chvec)
-sumDigits <- function(chvec){
 
+sumDigits <- function(chvec){
+temp = gsub('[^0-9]','',chvec)
+temp = strsplit(temp,'')
+sum(as.numeric(unlist(temp)))
   # your code here
 }
 
 # Some test cases:
-# all.equal(sumDigits("1z3p ! 21"), 7)
-# all.equal(sumDigits("abcdefg"), 0)
+#all.equal(sumDigits("1z3p ! 21"), 7)
+#all.equal(sumDigits("abcdefg"), 0)
 
 
 # Function 6 (6 points)
@@ -108,7 +112,7 @@ sumDigits <- function(chvec){
 #   <DNA_final>: A character vector of two DNAs
 
 dnaTransform <- function(DNA.vec){
-    
+    DNA.vec[grep('ATTA',DNA.vec)]
   # your code here
 }
 
