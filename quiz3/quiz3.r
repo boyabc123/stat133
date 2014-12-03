@@ -125,12 +125,30 @@ sum(as.numeric(unlist(temp)))
 #   <DNA_final>: A character vector of two DNAs
 
 dnaTransform <- function(DNA.vec){
-    DNA.vec[grep('ATTA',DNA.vec)]
+    a = grep('ATTA',DNA.vec)
+    if (length(a)<2){
+      DNA.vec[1:2]
+    }
+    else{
+    b = DNA.vec[a]
+    c = unlist(strsplit(b,' '))
+    DNA1 = c[1]
+    DNA2 = c[2]
+    DNA1_1 = substr(DNA1,1,5)
+    DNA1_2 = substr(DNA1,6,10)
+    
+    DNA2_1 = substr(DNA2,1,5)
+    DNA2_2 = substr(DNA2,6,10)
+    
+    a = paste0(DNA1_1,DNA2_2)
+    b = paste0(DNA2_1,DNA1_2)
+    c = c(a,b)
+    }
   # your code here
 }
 
 # Some test cases:
-# all.equal(dnaTransform(c("AAAAAAAAAA", "ATTAGATACT", "ATACATTACG")), c("ATTAGTTACG", "ATACAATACT"))
-# all.equal(dnaTransform(c("ATCGATCGAT", "TCGATCGATT", "ATTTTTTTTT")), c("ATCGATCGAT", "TCGATCGATT"))
+#all.equal(dnaTransform(c("AAAAAAAAAA", "ATTAGATACT", "ATACATTACG")), c("ATTAGTTACG", "ATACAATACT"))
+#all.equal(dnaTransform(c("ATCGATCGAT", "TCGATCGATT", "ATTTTTTTTT")), c("ATCGATCGAT", "TCGATCGATT"))
 
 # End of Quiz 3
