@@ -67,13 +67,13 @@ countcatdog<- function(chvec){
   cat=0
   dog=0
   for (i in 1:n-2){
-    if ((temp[i]=='c')&(temp[i+1]=='a')&(temp[i+2]=='t'))
+    if ((temp[i]=='c')&&(temp[i+1]=='a')&&(temp[i+2]=='t'))
       {cat = cat+1}
-    if ((temp[i]=='d')&(temp[i+1]=='o')&(temp[i+2]=='g'))
+    if ((temp[i]=='d')&&(temp[i+1]=='o')&&(temp[i+2]=='g'))
     {dog = dog+1}
   }
   k=c(cat,dog)
-  names(k,c('cat','dog'))
+  names(k)=c('cat','dog')
   return(k)
 }
 
